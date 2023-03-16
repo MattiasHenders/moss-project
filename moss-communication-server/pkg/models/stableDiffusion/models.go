@@ -14,7 +14,15 @@ type StableDiffusionResponse struct {
 }
 
 type StableDiffusionInput struct {
-	Prompt string `json:"prompt"`
+	Prompt           string  `json:"prompt"`
+	Seed             int64   `json:"seed,omitempty"`
+	NumOutputs       int     `json:"num_outputs,omitempty"`
+	Width            int     `json:"width,omitempty"`
+	Height           int     `json:"height,omitempty"`
+	NumInfrenceSteps int     `json:"num_inference_steps,omitempty"`
+	GuidanceScale    float32 `json:"guidance_scale,omitempty"`
+	InitImage        int     `json:"init_image,omitempty"`
+	Strength         int     `json:"strength,omitempty"`
 }
 
 type StableDiffusionOutput struct {
