@@ -5,7 +5,6 @@ import (
 
 	server "github.com/MattiasHenders/moss-communication-server/internal"
 	"github.com/MattiasHenders/moss-communication-server/pkg/config"
-	"github.com/MattiasHenders/moss-communication-server/pkg/db"
 	"github.com/MattiasHenders/moss-communication-server/pkg/secrets"
 	"github.com/robfig/cron/v3"
 	"go.uber.org/zap"
@@ -30,7 +29,7 @@ func main() {
 		configName = "moss-communication-server.config.production"
 	}
 
-	secretData := secrets.LoadEnvAndGetSecrets()
+	_ = secrets.LoadEnvAndGetSecrets()
 
 	// Config
 	_, configErr := config.LoadConfig("./configs", []string{configName})
@@ -39,16 +38,16 @@ func main() {
 	}
 
 	// Database
-	_, dbErr := db.NewDatabase(
-		secretData.DatabaseHost,
-		secretData.DatabasePort,
-		secretData.DatabaseUsername,
-		secretData.DatabasePassword,
-		secretData.DatabaseName,
-	)
-	if dbErr != nil {
-		panic(dbErr)
-	}
+	// _, dbErr := db.NewDatabase(
+	// 	secretData.DatabaseHost,
+	// 	secretData.DatabasePort,
+	// 	secretData.DatabaseUsername,
+	// 	secretData.DatabasePassword,
+	// 	secretData.DatabaseName,
+	// )
+	// if dbErr != nil {
+	// 	panic(dbErr)
+	// }
 
 	// Logger
 	var logger *zap.Logger

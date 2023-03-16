@@ -161,7 +161,7 @@ func VerifyAPIKey(apiKey string) func(http.Handler) http.Handler {
 				return errors.NewHTTPError(nil, http.StatusUnauthorized, "No apiKey found in header")
 			}
 
-			if rawApiKey == apiKey {
+			if rawApiKey != apiKey {
 				return errors.NewHTTPError(nil, http.StatusUnauthorized, "apiKey is incorrect")
 			}
 

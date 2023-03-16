@@ -7,6 +7,8 @@ import (
 
 	"go.uber.org/zap"
 
+	"github.com/MattiasHenders/moss-communication-server/internal/handlers"
+	h "github.com/MattiasHenders/moss-communication-server/pkg/handler"
 	"github.com/MattiasHenders/moss-communication-server/pkg/middleware"
 	pkgMiddleware "github.com/MattiasHenders/moss-communication-server/pkg/middleware"
 	"github.com/MattiasHenders/moss-communication-server/pkg/secrets"
@@ -51,6 +53,9 @@ func Start(port string) {
 		r.Group(func(r chi.Router) {
 			r.Use(middleware.VerifyAPIKey(secrets.DemoAPIKey))
 
+			// Stable Diffusion routes...
+			r.Post("/txt-2-img", h.Handler(handlers.CreateTextToImageRequestHandler()))
+			r.Post("/img-2-img", h.Handler(handlers.CreateTextToImageRequestHandler()))
 		})
 	})
 
