@@ -12,7 +12,7 @@ func CreateTextToImageRequest() *errors.HTTPError {
 
 	// Check the return value
 
-	// If all is good then parse the images response
+	// If all is good then parse the images from base64
 
 	return nil
 }
