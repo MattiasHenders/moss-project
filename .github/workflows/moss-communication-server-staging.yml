@@ -58,7 +58,7 @@ jobs:
           file: ./moss-communication-server/cmd/Dockerfile.${{ env.environment }}
           push: true
           platforms: linux/amd64
-          tags: moss-communication-server/${{ env.service }}:${{ env.SHA }}
+          tags: makeship/${{ env.service }}:${{ env.SHA }}
 
       - name: Generate deployment package
         run: zip -r ../../${{ env.service }}.zip .
