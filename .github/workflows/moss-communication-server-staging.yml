@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      
     paths:
       - .github/workflows/moss-communication-server-staging.yml
       - moss-communication-server/pkg/**
