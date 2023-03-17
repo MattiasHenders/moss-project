@@ -12,10 +12,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/MattiasHenders/moss-communication-server/pkg/errors"
-	"github.com/MattiasHenders/moss-communication-server/pkg/secrets"
+	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/errors"
+	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/secrets"
 
-	stableDiffusionModels "github.com/MattiasHenders/moss-communication-server/pkg/models/stableDiffusion"
+	stableDiffusionModels "github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/models/stableDiffusion"
 )
 
 const (

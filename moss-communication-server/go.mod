@@ -1,4 +1,4 @@
-module github.com/MattiasHenders/moss-communication-server
+module github.com/MattiasHenders/moss-communication-server/moss-communication-server
 
 go 1.18
 

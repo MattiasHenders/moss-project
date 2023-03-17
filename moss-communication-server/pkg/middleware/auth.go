@@ -7,17 +7,17 @@ import (
 	"strings"
 	"time"
 
-	"github.com/MattiasHenders/moss-communication-server/internal/services/apiKeys"
-	"github.com/MattiasHenders/moss-communication-server/internal/services/users"
-	"github.com/MattiasHenders/moss-communication-server/pkg/constants"
-	"github.com/MattiasHenders/moss-communication-server/pkg/handler"
-	apiKeyModels "github.com/MattiasHenders/moss-communication-server/pkg/models/apiKeys"
-	authModels "github.com/MattiasHenders/moss-communication-server/pkg/models/auth"
-	userModels "github.com/MattiasHenders/moss-communication-server/pkg/models/users"
+	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/internal/services/apiKeys"
+	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/internal/services/users"
+	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/constants"
+	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/handler"
+	apiKeyModels "github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/models/apiKeys"
+	authModels "github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/models/auth"
+	userModels "github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/models/users"
 
-	"github.com/MattiasHenders/moss-communication-server/internal/utils"
-	"github.com/MattiasHenders/moss-communication-server/pkg/errors"
-	"github.com/MattiasHenders/moss-communication-server/pkg/secrets"
+	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/internal/utils"
+	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/errors"
+	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/secrets"
 	"github.com/golang-jwt/jwt/v4"
 )
 

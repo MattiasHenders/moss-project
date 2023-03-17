@@ -3,12 +3,12 @@ package apiKeys
 import (
 	"net/http"
 
-	"github.com/MattiasHenders/moss-communication-server/internal/utils"
-	"github.com/MattiasHenders/moss-communication-server/pkg/constants"
-	"github.com/MattiasHenders/moss-communication-server/pkg/errors"
-	apiKeyModels "github.com/MattiasHenders/moss-communication-server/pkg/models/apiKeys"
-	"github.com/MattiasHenders/moss-communication-server/pkg/models/users"
-	"github.com/MattiasHenders/moss-communication-server/pkg/secrets"
+	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/internal/utils"
+	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/constants"
+	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/errors"
+	apiKeyModels "github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/models/apiKeys"
+	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/models/users"
+	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/secrets"
 )
 
 func CreateApiKeyAttachedToUser(user *users.User) (*string, *errors.HTTPError) {

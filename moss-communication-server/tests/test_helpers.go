@@ -3,7 +3,7 @@ package tests
 import (
 	"testing"
 
-	"github.com/MattiasHenders/moss-communication-server/pkg/errors"
+	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/errors"
 	"github.com/stretchr/testify/assert"
 )
 

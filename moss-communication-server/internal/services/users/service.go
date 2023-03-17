@@ -3,8 +3,8 @@ package users
 import (
 	"net/http"
 
-	"github.com/MattiasHenders/moss-communication-server/pkg/errors"
-	"github.com/MattiasHenders/moss-communication-server/pkg/models/users"
+	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/errors"
+	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/models/users"
 )
 
 func GetUserByID(id string) (*users.User, *errors.HTTPError) {
