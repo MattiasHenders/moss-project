@@ -60,15 +60,6 @@ jobs:
           platforms: linux/amd64
           tags: moss-communication-server/moss-communication-server/${{ env.service }}:${{ env.SHA }}
 
-      - name: Replace deployment variables
-        uses: falnyr/replace-env-vars-action@master
-        env:
-          DATADOG_KEY: ${{ secrets.DATADOG_KEY }}
-          DOCKER_IMAGE_TAG: ${{ env.SHA }}
-          ENVIRONMENT: ${{ env.environment }}
-        with:
-          filename: moss-communication-server/deploy/${{ env.service }}/Dockerrun.aws.json
-
       - name: Generate deployment package
         run: zip -r ../../${{ env.service }}.zip .
         working-directory: ./moss-communication-server/deploy/${{ env.service }}
