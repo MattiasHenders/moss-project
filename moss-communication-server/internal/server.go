@@ -55,7 +55,7 @@ func Start(port string) {
 
 			// Stable Diffusion routes...
 			r.Post("/txt-2-img", h.Handler(handlers.CreateTextToImageRequestHandler()))
-			r.Post("/img-2-img", h.Handler(handlers.CreateTextToImageRequestHandler()))
+			// r.Post("/img-2-img", h.Handler(handlers.CreateImageToImageRequestHandler()))
 		})
 	})
 

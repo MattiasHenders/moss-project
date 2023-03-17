@@ -15,6 +15,7 @@ type SecretData struct {
 	HashSalt         string
 	PasswordSecret   string
 	DemoAPIKey       string
+	RunpodAPIKey     string
 }
 
 func getSecretData() SecretData {
@@ -27,6 +28,7 @@ func getSecretData() SecretData {
 		HashSalt:         os.Getenv("hashSalt"),
 		PasswordSecret:   os.Getenv("passwordSecret"),
 		DemoAPIKey:       os.Getenv("demoAPIKey"),
+		RunpodAPIKey:     os.Getenv("runpodAPIKey"),
 	}
 }
 

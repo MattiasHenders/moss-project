@@ -1,6 +1,9 @@
 package handler
 
 import (
+	"bytes"
+	"image"
+	"image/png"
 	"net/http"
 	"strconv"
 	"strings"
@@ -66,6 +69,34 @@ func GetFormParamInt(r *http.Request, field string) *int {
 	return &paramInt
 }
 
+func GetFormParamInt64(r *http.Request, field string) *int64 {
+	param := r.Form.Get(field)
+	if param == "" {
+		return nil
+	}
+
+	paramInt, err := strconv.ParseInt(param, 10, 64)
+	if err != nil {
+		return nil
+	}
+
+	return &paramInt
+}
+
+func GetFormParamFloat64(r *http.Request, field string) *float64 {
+	param := r.Form.Get(field)
+	if param == "" {
+		return nil
+	}
+
+	paramFloat, err := strconv.ParseFloat(param, 64)
+	if err != nil {
+		return nil
+	}
+
+	return &paramFloat
+}
+
 func GetFormParamBool(r *http.Request, field string) *bool {
 	param := r.Form.Get(field)
 	if param == "" {
@@ -87,4 +118,20 @@ func GetQueryParam(r *http.Request, field string) *string {
 	}
 
 	return &param
+}
+
+func WriteImage(w http.ResponseWriter, img *image.Image) error {
+
+	buffer := new(bytes.Buffer)
+	if err := png.Encode(buffer, *img); err != nil {
+		return err
+	}
+
+	w.Header().Set("Content-Type", "image/png")
+	w.Header().Set("Content-Length", strconv.Itoa(len(buffer.Bytes())))
+	if _, err := w.Write(buffer.Bytes()); err != nil {
+		return err
+	}
+
+	return nil
 }
