@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      
     paths:
       - internal/moss-communication-server/**
       - internal/services/auth/**
