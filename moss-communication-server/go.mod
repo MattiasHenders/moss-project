@@ -1,6 +1,6 @@
 module github.com/MattiasHenders/moss-communication-server
 
-go 1.20
+go 1.18
 
 require (
 	github.com/go-chi/chi v1.5.1

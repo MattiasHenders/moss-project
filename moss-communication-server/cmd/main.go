@@ -4,7 +4,6 @@ import (
 	"os"
 
 	server "github.com/MattiasHenders/moss-communication-server/internal"
-	"github.com/MattiasHenders/moss-communication-server/pkg/config"
 	"github.com/MattiasHenders/moss-communication-server/pkg/secrets"
 	"github.com/robfig/cron/v3"
 	"go.uber.org/zap"
@@ -23,19 +22,8 @@ func runAllCronJobs() {
 }
 
 func main() {
-	configName := "moss-communication-server.config.staging"
-
-	if os.Getenv("ENV") == "production" {
-		configName = "moss-communication-server.config.production"
-	}
 
 	_ = secrets.LoadEnvAndGetSecrets()
-
-	// Config
-	_, configErr := config.LoadConfig("./configs", []string{configName})
-	if configErr != nil {
-		panic(configErr)
-	}
 
 	// Database
 	// _, dbErr := db.NewDatabase(
