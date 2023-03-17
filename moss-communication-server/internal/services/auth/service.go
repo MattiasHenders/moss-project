@@ -4,12 +4,12 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/internal/services/users"
-	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/constants"
-	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/errors"
-	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/middleware"
-	authModels "github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/models/auth"
-	userModels "github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/models/users"
+	"github.com/MattiasHenders/moss-communication-server/internal/services/users"
+	"github.com/MattiasHenders/moss-communication-server/pkg/constants"
+	"github.com/MattiasHenders/moss-communication-server/pkg/errors"
+	"github.com/MattiasHenders/moss-communication-server/pkg/middleware"
+	authModels "github.com/MattiasHenders/moss-communication-server/pkg/models/auth"
+	userModels "github.com/MattiasHenders/moss-communication-server/pkg/models/users"
 )
 
 func Login(w http.ResponseWriter, email string, password string) (*authModels.AuthToken, *errors.HTTPError) {

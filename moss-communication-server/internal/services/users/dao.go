@@ -3,8 +3,8 @@ package users
 import (
 	"database/sql"
 
-	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/db"
-	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/models/users"
+	"github.com/MattiasHenders/moss-communication-server/pkg/db"
+	"github.com/MattiasHenders/moss-communication-server/pkg/models/users"
 )
 
 const (

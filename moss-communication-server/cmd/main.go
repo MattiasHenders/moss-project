@@ -3,9 +3,9 @@ package main
 import (
 	"os"
 
-	server "github.com/MattiasHenders/moss-communication-server/moss-communication-server/internal"
-	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/config"
-	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/secrets"
+	server "github.com/MattiasHenders/moss-communication-server/internal"
+	"github.com/MattiasHenders/moss-communication-server/pkg/config"
+	"github.com/MattiasHenders/moss-communication-server/pkg/secrets"
 	"github.com/robfig/cron/v3"
 	"go.uber.org/zap"
 )

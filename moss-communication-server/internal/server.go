@@ -7,11 +7,11 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/internal/handlers"
-	h "github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/handler"
-	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/middleware"
-	pkgMiddleware "github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/middleware"
-	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/secrets"
+	"github.com/MattiasHenders/moss-communication-server/internal/handlers"
+	h "github.com/MattiasHenders/moss-communication-server/pkg/handler"
+	"github.com/MattiasHenders/moss-communication-server/pkg/middleware"
+	pkgMiddleware "github.com/MattiasHenders/moss-communication-server/pkg/middleware"
+	"github.com/MattiasHenders/moss-communication-server/pkg/secrets"
 
 	"github.com/go-chi/chi"
 	chiMiddleware "github.com/go-chi/chi/middleware"

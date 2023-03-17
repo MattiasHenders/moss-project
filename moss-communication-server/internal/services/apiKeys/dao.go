@@ -3,8 +3,8 @@ package apiKeys
 import (
 	"database/sql"
 
-	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/db"
-	apiKeyModels "github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/models/apiKeys"
+	"github.com/MattiasHenders/moss-communication-server/pkg/db"
+	apiKeyModels "github.com/MattiasHenders/moss-communication-server/pkg/models/apiKeys"
 	"github.com/google/uuid"
 )
 

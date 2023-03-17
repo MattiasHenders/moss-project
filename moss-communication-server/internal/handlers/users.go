@@ -4,10 +4,10 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/internal/services/users"
-	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/errors"
-	h "github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/handler"
-	"github.com/MattiasHenders/moss-communication-server/moss-communication-server/pkg/middleware"
+	"github.com/MattiasHenders/moss-communication-server/internal/services/users"
+	"github.com/MattiasHenders/moss-communication-server/pkg/errors"
+	h "github.com/MattiasHenders/moss-communication-server/pkg/handler"
+	"github.com/MattiasHenders/moss-communication-server/pkg/middleware"
 )
 
 func GetUserHandler() func(w http.ResponseWriter, r *http.Request) *errors.HTTPError {
