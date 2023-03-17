@@ -5,15 +5,15 @@ on:
     branches:
       - main
     paths:
-      - pkg/**
-      - configs/moss-communication-server.config.staging.yml
-      - cmd/**
-      - .github/workflows/moss-communication-server-staging.yml
-      - internal/services/auth/**
-      - internal/services/users/**
-      - internal/services/runpods/**
-      - internal/services/stableDiffusion/**
-      - internal/utils/**
+      - moss-communication-server/pkg/**
+      - moss-communication-server/configs/moss-communication-server.config.staging.yml
+      - moss-communication-server/cmd/**
+      - moss-communication-server/.github/workflows/moss-communication-server-staging.yml
+      - moss-communication-server/internal/services/auth/**
+      - moss-communication-server/internal/services/users/**
+      - moss-communication-server/internal/services/runpods/**
+      - moss-communication-server/internal/services/stableDiffusion/**
+      - moss-communication-server/internal/utils/**
 
 jobs:
   deploy:
@@ -55,10 +55,10 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./cmd/${{ env.service }}/Dockerfile.${{ env.environment }}
+          file: ./moss-communication-server/cmd/${{ env.service }}/Dockerfile.${{ env.environment }}
           push: true
           platforms: linux/amd64
-          tags: moss-communication-server/${{ env.service }}:${{ env.SHA }}
+          tags: moss-communication-server/moss-communication-server/${{ env.service }}:${{ env.SHA }}
 
       - name: Replace deployment variables
         uses: falnyr/replace-env-vars-action@master
@@ -67,11 +67,11 @@ jobs:
           DOCKER_IMAGE_TAG: ${{ env.SHA }}
           ENVIRONMENT: ${{ env.environment }}
         with:
-          filename: deploy/${{ env.service }}/Dockerrun.aws.json
+          filename: moss-communication-server/deploy/${{ env.service }}/Dockerrun.aws.json
 
       - name: Generate deployment package
         run: zip -r ../../${{ env.service }}.zip .
-        working-directory: ./deploy/${{ env.service }}
+        working-directory: ./moss-communication-server/deploy/${{ env.service }}
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v14
