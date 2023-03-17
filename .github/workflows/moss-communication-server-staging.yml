@@ -5,15 +5,15 @@ on:
     branches:
       - main
     paths:
-      - /moss-communication-server/pkg/**
-      - /moss-communication-server/configs/moss-communication-server.config.staging.yml
-      - /moss-communication-server/cmd/**
-      - /moss-communication-server/.github/workflows/moss-communication-server-staging.yml
-      - /moss-communication-server/internal/services/auth/**
-      - /moss-communication-server/internal/services/users/**
-      - /moss-communication-server/internal/services/runpods/**
-      - /moss-communication-server/internal/services/stableDiffusion/**
-      - /moss-communication-server/internal/utils/**
+      - moss-communication-server/pkg/**
+      - moss-communication-server/configs/moss-communication-server.config.staging.yml
+      - moss-communication-server/cmd/**
+      - .github/workflows/moss-communication-server-staging.yml
+      - moss-communication-server/internal/services/auth/**
+      - moss-communication-server/internal/services/users/**
+      - moss-communication-server/internal/services/runpods/**
+      - moss-communication-server/internal/services/stableDiffusion/**
+      - moss-communication-server/internal/utils/**
 
 jobs:
   deploy:
