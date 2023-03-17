@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      
     paths:
       - moss-communication-server/pkg/**
       - moss-communication-server/configs/moss-communication-server.config.staging.yml
