@@ -7,8 +7,8 @@
     "containerDefinitions": [{
         "essential": true,
         "image": "makeship/moss-communication-server:__DOCKER_IMAGE_TAG__",
-        "name": "moss-communication-server",
         "memory": 512,
+        "name": "moss-communication-server",
         "portMappings": [{
             "containerPort": 8080,
             "hostPort": 80
