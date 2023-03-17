@@ -1,0 +1,29 @@
+FROM golang:1.19-alpine as build
+
+WORKDIR /moss-communication-server
+
+COPY go.mod .
+COPY go.sum .
+RUN go mod download
+
+COPY . .
+
+ENV PORT 8080
+RUN go build -tags staging -o /bin/moss-communication-server cmd/main.go
+
+# Deploy
+FROM alpine:3.16
+
+WORKDIR /
+COPY --from=build /bin/moss-communication-server /bin/moss-communication-server
+COPY ./configs/moss-communication-server.staging.yml ./configs/
+
+# Create a group and user
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
+# Tell docker that all future commands should run as the appuser user
+USER appuser
+
+EXPOSE 8080
+
+ENTRYPOINT ["/bin/moss-communication-server"]
