@@ -3,7 +3,7 @@ name: Deploy moss-communication-server to staging
 on:
   push:
     branches:
-      - main
+      - TODO
     paths:
       - .github/workflows/moss-communication-server-staging.yml
       - moss-communication-server/pkg/**
@@ -70,7 +70,7 @@ jobs:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: ${{ env.service }}
-          environment_name: ${{ env.service }}-env
+          environment_name: ${{ env.service }}-${{ env.environment }}
           version_label: ${{ env.service }}-${{ github.run_number }}
           region: us-east-2
           deployment_package: ${{ env.service }}.zip
