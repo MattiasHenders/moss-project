@@ -61,7 +61,7 @@ jobs:
           tags: makeship/${{ env.service }}:${{ env.SHA }}
 
       - name: Generate deployment package
-        run: zip -r ../../${{ env.service }}.zip .
+        run: zip -r ../../../${{ env.service }}.zip .
         working-directory: ./moss-communication-server/deploy/${{ env.service }}
 
       - name: Deploy to EB
