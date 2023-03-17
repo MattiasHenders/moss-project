@@ -2,6 +2,7 @@ FROM golang:1.19-alpine as build
 
 WORKDIR /moss-communication-server
 
+
 COPY moss-communication-server/go.mod .
 COPY moss-communication-server/go.sum .
 RUN go mod download
