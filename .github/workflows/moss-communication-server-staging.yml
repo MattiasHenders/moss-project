@@ -3,7 +3,7 @@ name: Deploy moss-communication-server to staging
 on:
   push:
     branches:
-      - TODO
+      - main
     paths:
       - .github/workflows/moss-communication-server-staging.yml
       - moss-communication-server/pkg/**
