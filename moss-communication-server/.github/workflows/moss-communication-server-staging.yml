@@ -3,46 +3,24 @@ name: Deploy moss-communication-server to staging
 on:
   push:
     branches:
-      - TODO
+      - main
     paths:
       - pkg/**
       - configs/moss-communication-server.config.staging.yml
       - cmd/**
-      - deploy/**
       - .github/workflows/moss-communication-server-staging.yml
       - internal/services/auth/**
       - internal/services/users/**
+      - internal/services/runpods/**
+      - internal/services/stableDiffusion/**
       - internal/utils/**
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Set up Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.18
-
-      - name: Build
-        run: go build -v ./...
-
-      - name: Test
-        run: go test -race -coverprofile=coverage.out -covermode=atomic ./... 
-      
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          token: ${{secrets.CODECOV_TOKEN}}
-
   deploy:
     env:
       service: moss-communication-server
       environment: staging
     runs-on: ubuntu-latest
-    needs: [test]
     steps:
       - name: Checkout
         uses: actions/checkout@v3

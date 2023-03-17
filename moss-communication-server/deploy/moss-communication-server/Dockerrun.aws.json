@@ -1,0 +1,102 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "authentication": {
+        "bucket": "makeship-secure",
+        "key": "credentials/dockercfg.json"
+    },
+    "containerDefinitions": [{
+            "essential": true,
+            "image": "makeship/moss-communication-server:__DOCKER_IMAGE_TAG__",
+            "name": "moss-communication-server",
+            "memory": 512,
+            "portMappings": [{
+                "containerPort": 8080,
+                "hostPort": 80
+            }],
+            "environment": [{
+                "name": "ENV",
+                "value": "__ENVIRONMENT__"
+            }]
+        },
+        {
+            "environment": [{
+                    "name": "DD_API_KEY",
+                    "value": "__DATADOG_KEY__"
+                },
+                {
+                    "name": "DD_LOGS_ENABLED",
+                    "value": "true"
+                },
+                {
+                    "name": "DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL",
+                    "value": "true"
+                },
+                {
+                    "name": "DD_CONTAINER_EXCLUDE",
+                    "value": "image:gcr.io/datadoghq/agent image:amazon/amazon-ecs-agent"
+                },
+                {
+                    "name": "DD_TAGS",
+                    "value": "environment:__ENVIRONMENT__"
+                },
+                {
+                    "name": "DD_ENABLE_PAYLOADS_EVENTS",
+                    "value": "false"
+                },
+                {
+                    "name": "DD_ENABLE_PAYLOADS_SERIES",
+                    "value": "false"
+                },
+                {
+                    "name": "DD_ENABLE_PAYLOADS_SERVICE_CHECKS",
+                    "value": "false"
+                },
+                {
+                    "name": "DD_ENABLE_PAYLOADS_SKETCHES",
+                    "value": "false"
+                }
+            ],
+            "essential": true,
+            "image": "gcr.io/datadoghq/agent:latest",
+            "cpu": 100,
+            "memory": 256,
+            "links": [
+                "moss-communication-server"
+            ],
+            "mountPoints": [{
+                    "containerPath": "/var/run/docker.sock",
+                    "sourceVolume": "VarRunDocker_Sock"
+                },
+                {
+                    "containerPath": "/host/proc/",
+                    "sourceVolume": "Proc"
+                },
+                {
+                    "containerPath": "/host/sys/fs/cgroup",
+                    "sourceVolume": "SysFsCgroup"
+                }
+            ],
+            "name": "datadog"
+        }
+    ],
+    "family": "",
+    "volumes": [{
+            "host": {
+                "sourcePath": "/var/run/docker.sock"
+            },
+            "name": "VarRunDocker_Sock"
+        },
+        {
+            "host": {
+                "sourcePath": "/proc/"
+            },
+            "name": "Proc"
+        },
+        {
+            "host": {
+                "sourcePath": "/cgroup/"
+            },
+            "name": "SysFsCgroup"
+        }
+    ]
+}
