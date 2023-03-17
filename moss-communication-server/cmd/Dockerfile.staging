@@ -10,7 +10,8 @@ RUN go mod download
 COPY ./moss-communication-server ./moss-communication-server
 
 ENV PORT 8080
-RUN go build -tags staging -o /moss-communication-server/bin/moss-communication-server moss-communication-server/cmd/main.go
+RUN cd moss-communication-server
+RUN go build -tags staging -o bin/moss-communication-server cmd/main.go
 
 # Deploy
 FROM alpine:3.16
