@@ -1,4 +1,4 @@
-FROM golang:1.19-alpine as build
+FROM golang:1.20-alpine as build
 
 WORKDIR /moss-communication-server
 
@@ -11,7 +11,7 @@ COPY ./moss-communication-server ./moss-communication-server
 
 ENV PORT 8080
 RUN cd moss-communication-server
-RUN go build -tags staging -o bin/moss-communication-server cmd/main.go
+RUN go build -C moss-communication-server -o bin/moss-communication-server cmd/main.go
 
 # Deploy
 FROM alpine:3.16
