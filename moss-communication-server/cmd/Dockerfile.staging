@@ -16,7 +16,6 @@ FROM alpine:3.16
 
 WORKDIR /moss-communication-server
 COPY --from=build /moss-communication-server/bin/moss-communication-server /moss-communication-server/bin/moss-communication-server
-COPY ./moss-communication-server/configs/moss-communication-server.staging.yml ./moss-communication-server/configs/
 
 # Create a group and user
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
