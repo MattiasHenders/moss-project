@@ -22,7 +22,7 @@ const (
 	baseURL                        = "https://api.runpod.ai"
 	runpodID                       = "j0czf1bvlbn9r6"
 	statusComplete                 = "COMPLETED"
-	maxStableDiffusionRequestCount = 20
+	maxStableDiffusionRequestCount = 30
 )
 
 func CreateTextToImageRequest(prompt string, seed *int64, numOutputs *int, width *int, height *int, numInferenceSteps *int, guidanceScale *float64, initImage *int, strength *float64) ([]image.Image, *errors.HTTPError) {
@@ -180,7 +180,7 @@ func LoopUntilRequestFinishedAndImageIsGenerated(runpodID string) ([]string, err
 		}
 
 		requestCount++
-		time.Sleep(time.Second)
+		time.Sleep(time.Second * 5)
 	}
 }
 
