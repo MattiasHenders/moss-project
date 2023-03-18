@@ -73,7 +73,7 @@ jobs:
 
       - name: Generate deployment package
         run: zip -r ../../${{ env.service }}.zip .
-        working-directory: ./deploy
+        working-directory: ./deploy/${{ env.service }}
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v14
