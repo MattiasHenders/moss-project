@@ -69,7 +69,7 @@ jobs:
           DOCKER_IMAGE_TAG: ${{ env.SHA }}
           ENVIRONMENT: ${{ env.environment }}
         with:
-          filename: deploy/Dockerrun.aws.json
+          filename: deploy/${{ env.service }}/Dockerrun.aws.json
 
       - name: Generate deployment package
         run: zip -r ../../${{ env.service }}.zip .
