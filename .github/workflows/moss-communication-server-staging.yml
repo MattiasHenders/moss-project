@@ -14,7 +14,7 @@ on:
       - internal/utils/**
       - pkg/**
       - configs/moss-communication-server.staging.yml
-      - cmd/moss-communication-server/**
+      - cmd/**
       - deploy/moss-communication-server/**
       - .github/workflows/moss-communication-server-staging.yml
 
@@ -58,7 +58,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./cmd/${{ env.service }}/Dockerfile.${{ env.environment }}
+          file: ./cmd/Dockerfile.${{ env.environment }}
           push: true
           platforms: linux/amd64
           tags: makeship/${{ env.service }}:${{ env.SHA }}
