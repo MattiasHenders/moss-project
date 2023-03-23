@@ -35,24 +35,7 @@ func getSecretData() SecretData {
 func LoadEnvAndGetSecrets() *SecretData {
 
 	// Load .env file
-	err := godotenv.Load(".env")
-
-	if err != nil {
-
-		emptySecretData := SecretData{
-			DatabaseHost:     "",
-			DatabasePort:     "",
-			DatabaseName:     "",
-			DatabaseUsername: "",
-			DatabasePassword: "",
-			HashSalt:         "",
-			PasswordSecret:   "",
-			DemoAPIKey:       "",
-			RunpodAPIKey:     "",
-		}
-
-		return &emptySecretData
-	}
+	_ = godotenv.Load(".env")
 
 	// Get the secret data
 	secretData := getSecretData()
