@@ -6,12 +6,7 @@ on:
       - main
 
     paths:
-      - internal/moss-communication-server/**
-      - internal/services/auth/**
-      - internal/services/user/**
-      - internal/services/runpods/**
-      - internal/services/stableDiffusion/**
-      - internal/utils/**
+      - internal/**
       - pkg/**
       - configs/moss-communication-server.staging.yml
       - cmd/**
