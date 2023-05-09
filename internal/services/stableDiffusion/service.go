@@ -25,7 +25,7 @@ const (
 	maxStableDiffusionRequestCount = 30
 )
 
-func CreateTextToImageRequest(prompt string, seed *int64, numOutputs *int, width *int, height *int, numInferenceSteps *int, guidanceScale *float64, initImage *int, strength *float64) ([]image.Image, *errors.HTTPError) {
+func CreateTextToImageRequest(prompt string, seed *int64, numOutputs *int, width *int, height *int, numInferenceSteps *int, guidanceScale *float64, initImage *int, strength *float64) ([]string, *errors.HTTPError) {
 
 	// Build the request
 	requestInput := BuildRequestInput(prompt, seed, numOutputs, width, height, numInferenceSteps, guidanceScale, initImage, strength)
@@ -33,19 +33,16 @@ func CreateTextToImageRequest(prompt string, seed *int64, numOutputs *int, width
 	// Run the request
 	stableDiffusionRes, err := StableDiffusionRunRequest(stableDiffusionModels.StableDiffusionRequest{Input: requestInput})
 	if err != nil {
-		return []image.Image{}, errors.NewHTTPError(err, http.StatusInternalServerError, "Error sending request to stable diffusion server")
+		return nil, errors.NewHTTPError(err, http.StatusInternalServerError, "Error sending request to stable diffusion server")
 	}
 
 	// Check the status to see when it is complete
 	imageBase64, err := LoopUntilRequestFinishedAndImageIsGenerated(stableDiffusionRes.ID)
 	if err != nil {
-		return []image.Image{}, errors.NewHTTPError(err, http.StatusInternalServerError, "Error checking status from stable diffusion server")
+		return nil, errors.NewHTTPError(err, http.StatusInternalServerError, "Error checking status from stable diffusion server")
 	}
 
-	// If all is good then parse the images from base64
-	images := ConvertBase64StringsIntoImages(imageBase64)
-
-	return images, nil
+	return imageBase64, nil
 }
 
 func CreateImageToImageRequest() *errors.HTTPError {

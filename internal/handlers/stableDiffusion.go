@@ -34,7 +34,7 @@ func CreateTextToImageRequestHandler() func(w http.ResponseWriter, r *http.Reque
 			return errors.NewHTTPError(nil, http.StatusInternalServerError, "Didnt make any images")
 		}
 
-		err := h.WriteImage(w, &images[0])
+		_, err := w.Write([]byte(images[0]))
 		if err != nil {
 			return errors.NewHTTPError(err, http.StatusInternalServerError, "Failed to convert image")
 		}
